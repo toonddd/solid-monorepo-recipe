@@ -1,0 +1,12 @@
+{
+  "name": "sceet",
+  "workspaces": [
+    "app",
+    "components",
+    "component-stories"
+  ],
+  "devDependencies": {
+    "typescript": "^4.5.5",
+    "typescript-plugin-css-modules": "^3.4.0"
+  }
+}
