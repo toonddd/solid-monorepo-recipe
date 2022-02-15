@@ -1,0 +1,30 @@
+---
+import { basename, extname } from 'path';
+export async function getStaticPaths() {
+  const posts = Astro.fetchContent('../../blogposts/*.md');
+  const paths = posts.map(post => ({
+    params: {
+      slug: basename(post.file.pathname, extname(post.file.pathname))
+    },
+    props: {
+      post,
+    }
+  }));
+  return paths;
+}
+
+const post = Astro.props.post;
+---
+<html>
+  <body>
+  <h1>
+    {post.title}
+  </h1>
+  <h2>
+    {post.author}
+  </h2>
+  <div style="background: red; color: white;">
+    {post.astro.html}
+  </div>
+  </body>
+</html>

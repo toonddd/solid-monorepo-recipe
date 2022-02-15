@@ -1,0 +1,20 @@
+---
+  import { basename, extname } from 'path';
+const posts = Astro.fetchContent('../../blogposts/*.md');
+const postPages = posts.map(post => ({
+  url: `/blog/${basename(post.file.pathname, extname(post.file.pathname))}`,
+  post,
+}));
+---
+<html>
+  <body>
+    <h1>blog!</h1>
+    <ul>
+      {postPages.map(page => (
+        <li>
+          <a href={page.url}>{page.post.title}</a>
+        </li>
+      ))}
+    </ul>
+  </body>
+</html>

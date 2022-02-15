@@ -3,7 +3,8 @@
   "workspaces": [
     "app",
     "components",
-    "component-stories"
+    "component-stories",
+    "website"
   ],
   "devDependencies": {
     "typescript": "^4.5.5",
